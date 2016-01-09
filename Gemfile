@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '>= 3.2'
 gem 'devise'
+gem 'toastr-rails'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
