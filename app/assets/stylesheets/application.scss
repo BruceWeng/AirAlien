@@ -103,6 +103,12 @@ body {
   border-radius: 2px;
   height: 4rem;
 }
+
+.sidebar-list {
+  padding-left: 0;
+  list-style: none;
+}
+
 .sidebar-item {
   padding: 10px 0;
   font-size: 16px;
@@ -204,4 +210,13 @@ input[type="checkbox"]:checked:before {
 
 .panel-heading.preview img{
   width: 100%;
+}
+
+.amenities li {
+  margin-bottom: 10px;
+  list-style-type: none;
+}
+
+.text-line-through {
+  text-decoration: line-through;
 }
