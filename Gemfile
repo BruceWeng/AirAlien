@@ -18,6 +18,8 @@ gem 'omniauth-facebook'
 gem 'paperclip'
 gem 'geocoder'
 gem 'jquery-ui-rails'
+gem 'private_pub'
+gem 'thin'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
