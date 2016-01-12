@@ -34,10 +34,14 @@
         <% end %>
 
         <li>
-          <a href="#"><i class="fa fa-envelope-o"></i> Messages</a>
+        <%= link_to conversations_path do %>
+          <i class="fa fa-envelope-o"></i> Messages</a>
+        <% end %>
         </li>
         <li>
-          <a href="#"><i class="fa fa-home fa-lg"></i> Become a Host</a>
+          <%= link_to new_room_path do %>
+            <i class="fa fa-home fa-lg"></i> Become a Host</a>
+          <% end %>
         </li>
       </ul>
     </div>
