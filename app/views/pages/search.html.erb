@@ -24,6 +24,8 @@
           </div>
         </div>
 
+        <hr>
+
         <div class="row">
           <div class="col-md-4">
             <%= check_box_tag "q[room_type_eq_any][]", "Entire" %> Entire Room
@@ -36,6 +38,8 @@
           </div>
         </div>
 
+        <hr>
+
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
@@ -47,17 +51,19 @@
           <div class="col-md-4">
             <div class="form-group">
               <label>Bedrooms</label>
-              <%= f.select :bedrooms_gteq, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]] %>
+              <%= f.select :accommodate_gteq, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]] %>
             </div>
           </div>
 
           <div class="col-md-4">
             <div class="form-group">
               <label>Bathrooms</label>
-              <%= f.select :bathrooms_gteq, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]] %>
+              <%= f.select :accommodate_gteq, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]] %>
             </div>
           </div>
         </div>
+
+        <hr>
 
         <div class="row">
           <div class="col-md-4">
@@ -77,11 +83,33 @@
             </div>
         </div>
 
+        <hr>
+
         <div class="row">
-          <%= f.submit "Search", class: "btn gtn-primary" %>
+          <%= f.submit "Search", class: "btn btn-primary pull-right" %>
         </div>
 
       <% end %>
+
+      <hr>
+
+      <div class="row">
+        <% @arrRooms.each do |room| %>
+
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading preview">
+                <%= image_tag room.photos[0].image.url(:medium) if room.photos.length > 0 %>
+              </div>
+              <div class="panel-body">
+                <%= link_to room.listing_name, room %>
+              </div>
+            </div>
+          </div>
+
+        <% end %>
+      </div>
+
     </div>
   </div>
 
@@ -89,7 +117,7 @@
 
 <script>
   $(function() {
-    $("start_date").datepicker({
+    $("#start_date").datepicker({
       dateFormat: 'dd-mm-yy',
       minDate: 0,
       maxDate: '3m',
@@ -99,7 +127,7 @@
       }
     });
 
-    $("end_date").datepicker({
+    $("#end_date").datepicker({
       dateFormat: 'dd-mm-yy',
       minDate: 0,
       maxDate: '3m',
