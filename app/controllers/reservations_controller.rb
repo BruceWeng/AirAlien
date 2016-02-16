@@ -35,7 +35,7 @@ class ReservationsController < ApplicationController
         item_name: @reservation.room.listing_name,
         item_number: @reservation.id,
         quantity: '1',
-        return: 'http://localhost:3000/your_trips' #'http://########.ngrok.io/your_trips'
+        return: 'http://airalien.xyz/your_trips' #'http://########.ngrok.io/your_trips'
       }
 
       redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
