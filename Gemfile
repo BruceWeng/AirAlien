@@ -12,6 +12,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '>= 3.2'
 gem 'devise'
 gem 'toastr-rails'
+gem 'sendgrid-rails', '~> 2.0', '>= 2.0.5' 
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'paperclip'
@@ -30,6 +31,3 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
-
-
-
