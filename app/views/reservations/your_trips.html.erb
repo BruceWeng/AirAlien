@@ -19,7 +19,7 @@
             </div>
             <div class="col-md-6">
             <%= link_to room_path(trip.room) do %>
-                <%= image_tag trip.room.photos[0].image.url(:thumb) %>
+                <%= image_tag trip.room.photos[0].image.url(:thumb) if trip.room.photos.length > 0 %>
             <% end %>
             </div>
             <div class="col-md-2">
