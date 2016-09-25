@@ -30,7 +30,7 @@ class ReservationsController < ApplicationController
         business: 'weng8916-facilitator@gmail.com',
         cmd: '_xclick',
         upload: 1,
-        notify_url: 'http://########.ngrok.io/notify',
+        notify_url: 'http://airalien.xyz/notify',
         amount: @reservation.total,
         item_name: @reservation.room.listing_name,
         item_number: @reservation.id,
