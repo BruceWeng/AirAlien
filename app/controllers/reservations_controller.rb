@@ -44,24 +44,9 @@ class ReservationsController < ApplicationController
     end
   end
 
-  # protect_from_forgery except: [:notify]
-  # def notify
-  #   params.permit!
-  #   status = params[:payment_status]
-  #
-  #   reservation = Reservation.find(params[:item_number])
-  #
-  #   if status == "Completed"
-  #     reservation.update_attributes status: true
-  #   else
-  #     reservation.destroy
-  #   end
-  #
-  #   render nothing: true
-  # end
-
-  protect_from_forgery except: [:your_trips]
-  def your_trips
+  protect_from_forgery except: [:notify]
+  def notify
+    print 'hello'
     params.permit!
     status = params[:payment_status]
 
@@ -73,6 +58,11 @@ class ReservationsController < ApplicationController
       reservation.destroy
     end
 
+    render nothing: true
+  end
+
+  protect_from_forgery except: [:your_trips]
+  def your_trips
     @trips = current_user.reservations.where("status = ?", true)
   end
 
