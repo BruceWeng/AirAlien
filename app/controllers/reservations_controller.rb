@@ -30,12 +30,12 @@ class ReservationsController < ApplicationController
         business: 'weng8916-facilitator@gmail.com',
         cmd: '_xclick',
         upload: 1,
-        notify_url: 'http://airalien.xyz/notify',
+        notify_url: 'http://6d5afbad.ngrok.io/notify',
         amount: @reservation.total,
         item_name: @reservation.room.listing_name,
         item_number: @reservation.id,
         quantity: '1',
-        return: 'http://airalien.xyz/your_trips' #'http://########.ngrok.io/your_trips'
+        return: 'http://6d5afbad.ngrok.io/your_trips' #'http://########.ngrok.io/your_trips'
       }
 
       redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
@@ -44,24 +44,35 @@ class ReservationsController < ApplicationController
     end
   end
 
-  protect_from_forgery except: [:notify]
-  def notify
+  # protect_from_forgery except: [:notify]
+  # def notify
+  #   params.permit!
+  #   status = params[:payment_status]
+  #
+  #   reservation = Reservation.find(params[:item_number])
+  #
+  #   if status == "Completed"
+  #     reservation.update_attributes status: true
+  #   else
+  #     reservation.destroy
+  #   end
+  #
+  #   render nothing: true
+  # end
+
+  protect_from_forgery except: [:your_trips]
+  def your_trips
     params.permit!
     status = params[:payment_status]
 
     reservation = Reservation.find(params[:item_number])
 
-    if status = "Completed"
+    if status == "Completed"
       reservation.update_attributes status: true
     else
       reservation.destroy
     end
 
-    render nothing: true
-  end
-
-  protect_from_forgery except: [:your_trips]
-  def your_trips
     @trips = current_user.reservations.where("status = ?", true)
   end
 
